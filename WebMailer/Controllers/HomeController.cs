@@ -19,6 +19,7 @@ namespace WebMailer.Controllers
 
         public async Task<IActionResult> Index()
         {
+            // mail is sent here //
             try
             {
                 await _mailService.SendEmail();
