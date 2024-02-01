@@ -4,7 +4,7 @@ This is a demo ASP.NET Core 8 project for sending emails.
 
 ## Why
 
-There are many ways to send emails, but you can use this as a reference how to configure yours to be able t send emails via SMTP.
+There are many ways to send emails with ASP.NET, but you can follow this project as a some sort of reference how to configure your project to be able to send emails via SMTP.
 
 ## How to use?
 
