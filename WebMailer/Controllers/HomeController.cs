@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net.Mail;
 using WebMailer.Application.Mailing;
 using WebMailer.Domain.Settings;
 using WebMailer.Models;
@@ -22,7 +23,16 @@ namespace WebMailer.Controllers
             // mail is sent here //
             try
             {
-                await _mailService.SendEmail();
+                MailMessage message = new MailMessage(
+                    new MailAddress("office@milos.com"),
+                    new MailAddress("exec@asd.com")
+                )
+                {
+                    IsBodyHtml = true,
+                    Subject = "Zdravo",
+                    Body = @"<strong>Zdravo, ovo je email.</strong>"
+                };
+                await _mailService.SendEmail(message);
             }
             catch(Exception e)
             {

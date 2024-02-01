@@ -24,22 +24,13 @@ namespace WebMailer.Application.Mailing
             
         }
 
-        public async Task SendEmail()
+        public async Task SendEmail(MailMessage message)
         {
             var client = new SmtpClient(mailSettings.Host, mailSettings.Port);
             NetworkCredential credentials = new NetworkCredential(mailSettings.UserName, mailSettings.Password);
 
             client.Credentials = credentials;
            
-            MailMessage message = new MailMessage(
-                new MailAddress("office@milos.com"),
-                new MailAddress("exec@asd.com")
-            )
-            {
-                IsBodyHtml = true,
-                Subject = "Zdravo",
-                Body = @"<strong>Zdravo, ovo je email.</strong>"
-            };
             client.SendAsync(message,credentials.UserName);
             client.SendCompleted += (sender, e) =>
             {
