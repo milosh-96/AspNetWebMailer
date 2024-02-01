@@ -20,7 +20,7 @@ namespace WebMailer.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // mail is sent here //
+            // mail service is called here //
             try
             {
                 MailMessage message = new MailMessage(
@@ -29,8 +29,8 @@ namespace WebMailer.Controllers
                 )
                 {
                     IsBodyHtml = true,
-                    Subject = "Zdravo",
-                    Body = @"<strong>Zdravo, ovo je email.</strong>"
+                    Subject = "Hello!",
+                    Body = @"<h2>Welcome to our Site!</h2><p>The mail service works.</p>"
                 };
                 await _mailService.SendEmail(message);
             }
