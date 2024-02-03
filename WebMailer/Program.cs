@@ -10,7 +10,7 @@ namespace WebMailer
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddScoped<MailService>();
+            builder.Services.AddScoped<IMailService,MailService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

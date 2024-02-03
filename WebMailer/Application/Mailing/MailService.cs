@@ -4,7 +4,7 @@ using WebMailer.Domain.Settings;
 
 namespace WebMailer.Application.Mailing
 {
-    public class MailService 
+    public class MailService : IMailService
     {
         private readonly IConfiguration _configuration;
         private readonly MailSettings mailSettings;
@@ -21,7 +21,7 @@ namespace WebMailer.Application.Mailing
             {
                 throw new InvalidOperationException("Couldn't parse values!");
             }
-            
+
         }
 
         public async Task SendEmail(MailMessage message)
@@ -30,14 +30,14 @@ namespace WebMailer.Application.Mailing
             NetworkCredential credentials = new NetworkCredential(mailSettings.UserName, mailSettings.Password);
 
             client.Credentials = credentials;
-           
-            client.SendAsync(message,credentials.UserName);
+
+            client.SendAsync(message, credentials.UserName);
             client.SendCompleted += (sender, e) =>
             {
                 Console.WriteLine("Done!");
             };
 
-            
+
         }
     }
 }
