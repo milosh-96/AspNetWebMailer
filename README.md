@@ -24,6 +24,6 @@ This project uses ``secrets.json`` or ``appSettings.json``. You should put your 
 ## Identity
 ASP.NET Core Identity expects that the mail service class implements ``Microsoft.AspNetCore.Identity.UI.Services.IEmailSender`` . 
 
-You can see an [Implemenation](https://github.com/milosh-96/SportsGlobe.Web/blob/master/SportsGlobe.Web/Infrastructure/MailSender.cs) here. 
+Check out an [Implemenation](https://github.com/milosh-96/SportsGlobe.Web/blob/master/SportsGlobe.Web/Infrastructure/MailSender.cs) here. 
 
 It's a slighty modified ``MailService`` from this project.
