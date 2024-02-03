@@ -22,4 +22,4 @@ This project uses ``secrets.json`` or ``appSettings.json``. You should put your 
 ``Program.cs`` - `MailService` is added as a scoped service on the line 13.
 
 ## Identity
-ASP.NET Core Identity expects that the mail service class implements ``IEmailSender`` interface. 
+ASP.NET Core Identity expects that the mail service class implements ``Microsoft.AspNetCore.Identity.UI.Services.IEmailSender`` interface from . 
