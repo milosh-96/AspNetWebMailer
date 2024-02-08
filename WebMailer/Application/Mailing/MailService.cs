@@ -28,9 +28,9 @@ namespace WebMailer.Application.Mailing
         {
             var client = new SmtpClient(mailSettings.Host, mailSettings.Port);
             NetworkCredential credentials = new NetworkCredential(mailSettings.UserName, mailSettings.Password);
-
             client.Credentials = credentials;
-
+            //disable ssl for mailgun port 587/
+            client.EnableSsl = false;
             client.SendAsync(message, credentials.UserName);
             client.SendCompleted += (sender, e) =>
             {

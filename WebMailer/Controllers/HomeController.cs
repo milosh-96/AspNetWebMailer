@@ -10,9 +10,9 @@ namespace WebMailer.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly MailService _mailService;
+        private readonly IMailService _mailService;
 
-        public HomeController(ILogger<HomeController> logger, MailService mailService)
+        public HomeController(ILogger<HomeController> logger, IMailService mailService)
         {
             _logger = logger;
             _mailService = mailService;
@@ -24,8 +24,8 @@ namespace WebMailer.Controllers
             try
             {
                 MailMessage message = new MailMessage(
-                    new MailAddress("office@milos.com"),
-                    new MailAddress("exec@asd.com")
+                    new MailAddress("office@example.com"),
+                    new MailAddress("example@example.com")
                 )
                 {
                     IsBodyHtml = true,
